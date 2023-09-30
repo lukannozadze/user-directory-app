@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { user } from "../user";
 type usersState = {
-    usersData:user[] | null
+    usersData:user[]
 }
 
 
@@ -11,8 +11,13 @@ const userSlice = createSlice({
     reducers:{
         setUsers:(state,action) =>{
             state.usersData = action.payload
+        },
+        deleteUser:(state,action)=>{
+            let usersCopy = state.usersData?.slice();
+            usersCopy = state.usersData?.filter(user=>user.id!==action.payload)
+            state.usersData = usersCopy;
         }
     }
 })
 export const userSliceReducer =  userSlice.reducer;
-export const {setUsers} = userSlice.actions
+export const {setUsers,deleteUser} = userSlice.actions
