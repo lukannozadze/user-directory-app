@@ -1,11 +1,10 @@
-
-import './App.css'
+import UsersPage from './Pages/UsersPage'
 
 function App() {
  
   return (
-<div>
-  <h1 className='text-red-500'>I'm Starting Project For Smart Solutions AI</h1>
+<div className='flex flex-col items-center justify-center h-screen bg-[#FAF9F6]'>
+ <UsersPage/>
 </div>
   )
 }
