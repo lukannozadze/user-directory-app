@@ -1,4 +1,5 @@
 const UsersTableHead = () =>{
+
 return <thead className='bg-[#CCC] text-[#222]'>
 <tr>
     <th>User</th>
