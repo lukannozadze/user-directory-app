@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { userSliceReducer } from "./UserSlicer";
  import { useDispatch,TypedUseSelectorHook,useSelector } from "react-redux";
+import { deleteModalSlicer } from "./DeleteModalSlicer";
  const store = configureStore({
     reducer: {
-     users:userSliceReducer
+     users:userSliceReducer,
+     delete:deleteModalSlicer
     },
   });
 
