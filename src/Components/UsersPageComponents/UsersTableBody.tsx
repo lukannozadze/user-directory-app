@@ -5,8 +5,6 @@ import { useAppDispatch } from '../../store/store'
 import { setModalIsShown } from '../../store/DeleteModalSlicer';
 const UsersTableBody = (props:{user:user,setDeletedUserId:(deletedUserId:number)=>void}) =>{
     const dispatch = useAppDispatch();
-    //const shouldBeDeleted = useAppSelector(state=>state.delete.shouldBeDeleted);
-    //const deleteModalIsShown = useAppSelector(state=>state.delete.modalIsShown);
 return  <tbody>
                 <tr className='border-b-2'>
                     <td>{props.user.name}</td>

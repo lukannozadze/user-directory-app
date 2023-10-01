@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { user } from "../user";
 type usersState = {
-    usersData:user[]
+    usersData:user[],
+    isLoading:boolean
 }
 
 
 const userSlice = createSlice({
     name:'user',
-    initialState:{usersData:[]} as usersState,
+    initialState:{usersData:[],isLoading:true} as usersState,
     reducers:{
         setUsers:(state,action) =>{
             state.usersData = action.payload
@@ -16,8 +17,11 @@ const userSlice = createSlice({
             let usersCopy = state.usersData?.slice();
             usersCopy = state.usersData?.filter(user=>user.id!==action.payload)
             state.usersData = usersCopy;
+        },
+        setIsLoading:(state)=>{
+            state.isLoading = !state.isLoading;
         }
     }
 })
 export const userSliceReducer =  userSlice.reducer;
-export const {setUsers,deleteUser} = userSlice.actions
+export const {setUsers,deleteUser,setIsLoading} = userSlice.actions
