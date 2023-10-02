@@ -6,7 +6,7 @@ import { user } from "../user";
 import { useAppSelector } from "../store/store";
 
 
-const UsersPage = (props:{setDeletedUserId:(deletedUserId:number)=>void}) =>{
+const UsersPage = (props:{setDeletedUserId:(deletedUserId:number)=>void,setClickedUser:(clickedUser:number|null)=>void}) =>{
     const users = useAppSelector(state=>state.users.usersData)
     const [currentPage,setCurrentPage] = useState<number>(1);
     const usersPerPage:number =5;
@@ -19,7 +19,7 @@ return <div className='w-100%'>
     <UsersTableHead/>
     {
      currentPosts?.map((user)=>{
-         return <UsersTableBody setDeletedUserId={props.setDeletedUserId} key={user.id} user={user} />
+         return <UsersTableBody setClickedUser={props.setClickedUser}  setDeletedUserId={props.setDeletedUserId} key={user.id} user={user} />
      })
     }
 
