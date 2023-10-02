@@ -7,6 +7,7 @@
   import { setModalIsHidden } from './store/DeleteModalSlicer';
   import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserDetail from './Pages/UserDetail';
+import ErrorPage from './Pages/ErrorPage';
   function App() {
 
   
@@ -47,13 +48,10 @@ import UserDetail from './Pages/UserDetail';
   </div>
           }
             />
-          
-
           <Route path='/user/:id' element={
             <UserDetail  clickedUser={clickedUser} users={users}/>
           }/>
-            
-          
+            <Route path='*' element={<ErrorPage/>}/>
      </Routes>
       </BrowserRouter>
       
