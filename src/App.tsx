@@ -5,7 +5,7 @@
   import { setIsLoading, setUsers } from './store/UserSlicer';
   import DeleteConfirmationModal from './Components/UsersPageComponents/DeleteConfirmationModal';
   import { setModalIsHidden } from './store/DeleteModalSlicer';
-  import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+  import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserDetail from './Pages/UserDetail';
   function App() {
 
@@ -26,9 +26,10 @@ import UserDetail from './Pages/UserDetail';
   
 
     return (
-      <Router>
-        <Switch>
-          <Route exact path='/'>
+      <BrowserRouter>
+     <Routes>
+          <Route path='/' element={
+            
   <div className='flex flex-col items-center justify-center h-screen bg-[#FAF9F6]'>
      {isLoading && <p className='text-4xl font-serif'>Loading...</p>}
   {!isLoading && users!==null && <UsersPage setClickedUser={setClickedUser}  setDeletedUserId={setDeletedUserId} />}
@@ -44,12 +45,18 @@ import UserDetail from './Pages/UserDetail';
   <DeleteConfirmationModal deletedUserId={deletedUserId} /> 
   </div>} 
   </div>
-          </Route>
-          <Route path='/user/:id'>
+          }
+            />
+          
+
+          <Route path='/user/:id' element={
             <UserDetail  clickedUser={clickedUser} users={users}/>
-          </Route>
-        </Switch>
-      </Router>
+          }/>
+            
+          
+     </Routes>
+      </BrowserRouter>
+      
     )
   }
 

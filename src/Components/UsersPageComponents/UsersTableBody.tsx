@@ -3,13 +3,13 @@ import { user } from '../../user';
 import { useAppDispatch } from '../../store/store'
 
 import { setModalIsShown } from '../../store/DeleteModalSlicer';
-import {useHistory } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 const UsersTableBody = (props:{user:user,setDeletedUserId:(deletedUserId:number)=>void,setClickedUser:(clickedUser:number|null)=>void}) =>{
     const dispatch = useAppDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 return  <tbody onClick={()=>{
     props.setClickedUser(props.user.id);
-    history.push(`/user/${props.user.id}`)
+    navigate(`/user/${props.user.id}`)
 }}>
                 <tr className='border-b-2'>
                     <td>{props.user.name}</td>
