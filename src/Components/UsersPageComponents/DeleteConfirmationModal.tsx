@@ -20,7 +20,7 @@ return <div className="bg-white w-[40%] flex flex-col items-center gap-4 p-4 bor
     <button onClick={()=>{
             dispatch(deleteUser(props.deletedUserId))
             dispatch(setModalIsHidden());
-            alert('User Deleted Permanently!')
+             alert('User Deleted Permanently!')
     }} className="p-3 bg-red-500">Delete</button>
    </div>
 </div>

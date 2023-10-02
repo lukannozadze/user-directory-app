@@ -1,9 +1,10 @@
-import { useState } from "react";
+import {useState } from "react";
 import Pagination from "../Components/UsersPageComponents/Pagination";
 import UsersTableBody from "../Components/UsersPageComponents/UsersTableBody";
 import UsersTableHead from "../Components/UsersPageComponents/UsersTableHead";
 import { user } from "../user";
 import { useAppSelector } from "../store/store";
+
 
 const UsersPage = (props:{setDeletedUserId:(deletedUserId:number)=>void}) =>{
     const users = useAppSelector(state=>state.users.usersData)
@@ -12,6 +13,7 @@ const UsersPage = (props:{setDeletedUserId:(deletedUserId:number)=>void}) =>{
     const lastPostIndex:number = currentPage * usersPerPage;
     const firstPostIndex:number = lastPostIndex - usersPerPage
     const currentPosts:user[]|undefined = users?.slice(firstPostIndex,lastPostIndex);
+
 return <div className='w-100%'>
     <table className='block overflow-hidden table-fixed border-collapse shadow-lg rounded-[10px]  whitespace-nowrap table-indicator' >
     <UsersTableHead/>

@@ -5,6 +5,7 @@
   import { setIsLoading, setUsers } from './store/UserSlicer';
   import DeleteConfirmationModal from './Components/UsersPageComponents/DeleteConfirmationModal';
   import { setModalIsHidden } from './store/DeleteModalSlicer';
+import UserDetail from './Pages/UserDetail';
 
   function App() {
 
@@ -25,8 +26,9 @@
   
 
     return (
-  <div className='flex flex-col items-center justify-center h-screen bg-[#FAF9F6]'>
-    {isLoading && <p className='text-4xl font-serif'>Loading...</p>}
+  <div className='h-screen bg-[#FAF9F6]'>
+    <div className='flex flex-col items-center justify-center'>
+    {/* {isLoading && <p className='text-4xl font-serif'>Loading...</p>}
   {!isLoading && users!==null && <UsersPage  setDeletedUserId={setDeletedUserId} />}
 
   {isDeleting && <div onClick={(e)=>{
@@ -38,8 +40,10 @@
     }
   }} className='backdrop w-screen h-screen absolute bg-black z-10 bg-opacity-60 flex items-center justify-center'>
   <DeleteConfirmationModal deletedUserId={deletedUserId} /> 
-  </div>}
-
+  </div>} */}
+      
+    </div>
+   <UserDetail/>
   </div>
     )
   }
