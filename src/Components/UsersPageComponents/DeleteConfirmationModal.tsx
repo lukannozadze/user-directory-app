@@ -1,5 +1,5 @@
 
-import { setModalIsHidden } from "../../store/DeleteModalSlicer";
+import { setDeleteModalIsHidden } from "../../store/DeleteModalSlicer";
 import { deleteUser } from "../../store/UserSlicer";
 import { useAppDispatch } from "../../store/store"
 
@@ -14,12 +14,12 @@ return <div className="bg-white w-[40%] flex flex-col items-center gap-4 p-4 bor
    <p className="text-[18px] font-sans">Do you really want to delete this user?This process cannot be undone</p>
    <div className="flex gap-2 font-sans text-white ">
     <button onClick={()=>{
-      dispatch(setModalIsHidden());
+      dispatch(setDeleteModalIsHidden());
       alert('User Is Not Deleted!')
     }} className=" p-3 bg-gray-400 rounded-md">Cancel</button>
     <button onClick={()=>{
             dispatch(deleteUser(props.deletedUserId))
-            dispatch(setModalIsHidden());
+            dispatch(setDeleteModalIsHidden());
              alert('User Deleted Permanently!')
     }} className="p-3 bg-red-500 rounded-md">Confirm</button>
    </div>
