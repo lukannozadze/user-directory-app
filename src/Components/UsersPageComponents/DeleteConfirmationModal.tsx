@@ -16,12 +16,12 @@ return <div className="bg-white w-[40%] flex flex-col items-center gap-4 p-4 bor
     <button onClick={()=>{
       dispatch(setModalIsHidden());
       alert('User Is Not Deleted!')
-    }} className=" p-3 bg-gray-400">Cancel</button>
+    }} className=" p-3 bg-gray-400 rounded-md">Cancel</button>
     <button onClick={()=>{
             dispatch(deleteUser(props.deletedUserId))
             dispatch(setModalIsHidden());
              alert('User Deleted Permanently!')
-    }} className="p-3 bg-red-500">Delete</button>
+    }} className="p-3 bg-red-500 rounded-md">Confirm</button>
    </div>
 </div>
 }
