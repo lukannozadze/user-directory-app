@@ -9,11 +9,13 @@
 import UserDetail from './Pages/UserDetail';
 import ErrorPage from './Pages/ErrorPage';
 import EditModal from './Components/UsersPageComponents/EditModal';
+import { setEditModalIsHidden } from './store/EditModalSlicer';
   function App() {
 
   
 
   const [deletedUserId,setDeletedUserId] = useState<number | null>(null)
+  const [editedUserId,setEditedUserId] = useState<number | null>(null)
   const [clickedUser,setClickedUser] = useState<number | null>(null)
   const isDeleting = useAppSelector(state=>state.delete.modalIsShown);
   const users = useAppSelector(state=>state.users.usersData)
@@ -37,7 +39,7 @@ import EditModal from './Components/UsersPageComponents/EditModal';
   <div className='flex flex-col items-center justify-center h-screen bg-[#FAF9F6]'>
     
       {isLoading && <p className='text-4xl font-serif'>Loading...</p>}
-  {!isLoading && users!==null && <UsersPage setClickedUser={setClickedUser}  setDeletedUserId={setDeletedUserId} />}
+  {!isLoading && users!==null && <UsersPage setClickedUser={setClickedUser}  setDeletedUserId={setDeletedUserId} setEditedUserId={setEditedUserId} />}
 
   {isDeleting && <div onClick={(e)=>{
     const target = e.target as HTMLBodyElement;
@@ -49,8 +51,15 @@ import EditModal from './Components/UsersPageComponents/EditModal';
   }} className='backdrop-delete w-screen h-screen absolute bg-black z-10 bg-opacity-60 flex items-center justify-center'>
   <DeleteConfirmationModal deletedUserId={deletedUserId} /> 
   </div>}  
-  {isEditing && <div className='backdrop-edit w-screen h-screen absolute bg-black z-10 bg-opacity-60 flex items-center justify-center'>
-     <EditModal/>
+  {isEditing && <div onClick={(e)=>{
+    const target = e.target as HTMLBodyElement;
+    const classname = target.className;
+    if(classname.includes('backdrop-edit')){
+      dispatch(setEditModalIsHidden());
+      // alert('User Is Not Editted!')
+    }
+  }} className='backdrop-edit w-screen h-screen absolute bg-black z-10 bg-opacity-60 flex items-center justify-center'>
+     <EditModal editedUserId={editedUserId}/>
   </div>}
   </div>
           }

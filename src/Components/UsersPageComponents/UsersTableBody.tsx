@@ -5,7 +5,7 @@ import { setEditModalIsShown } from '../../store/EditModalSlicer';
 import {useNavigate } from 'react-router-dom';
 import { editUser } from '../../store/UserSlicer';
 import { setDeleteModalIsShown } from '../../store/DeleteModalSlicer';
-const UsersTableBody = (props:{user:user,setDeletedUserId:(deletedUserId:number)=>void,setClickedUser:(clickedUser:number|null)=>void}) =>{
+const UsersTableBody = (props:{user:user,setDeletedUserId:(deletedUserId:number)=>void,setClickedUser:(clickedUser:number|null)=>void,setEditedUserId:(editedUserId:number|null)=>void}) =>{
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 return  <tbody onClick={(e)=>{
@@ -47,6 +47,7 @@ return  <tbody onClick={(e)=>{
                               ))
                         }
                         dispatch(setEditModalIsShown())
+                        props.setEditedUserId(props.user.id)
                        }} id='action' className={`user-${props.user.id} p-3 bg-green-400 text-white rounded-md`}>Edit</button>
                         </div>
                         </td> 

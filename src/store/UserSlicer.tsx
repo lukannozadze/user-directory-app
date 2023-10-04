@@ -23,14 +23,15 @@ const userSlice = createSlice({
            const usersCopy = state.usersData?.slice();
            usersCopy.map((user)=>{
             if(user.id === action.payload.id){
-                user.name = action.payload.name
-                user.email = action.payload.email
-                user.address.city = action.payload.city
-                user.address.street = action.payload.street
-                user.address.suite  = action.payload.suite
+                user.name = action.payload.formObj.name
+                user.email = action.payload.formObj.email
+                user.address.city = action.payload.formObj.city
+                user.address.street = action.payload.formObj.street
+                user.address.suite  = action.payload.formObj.suite
             }
            })
            state.usersData =usersCopy;
+    
         },
 
         setIsLoading:(state)=>{
