@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../store/store'
 
 import { setEditModalIsShown } from '../../store/EditModalSlicer';
 import {useNavigate } from 'react-router-dom';
-import { editUser } from '../../store/UserSlicer';
+
 import { setDeleteModalIsShown } from '../../store/DeleteModalSlicer';
 const UsersTableBody = (props:{user:user,setDeletedUserId:(deletedUserId:number)=>void,setClickedUser:(clickedUser:number|null)=>void,setEditedUserId:(editedUserId:number|null)=>void}) =>{
     const dispatch = useAppDispatch();
@@ -34,18 +34,7 @@ return  <tbody onClick={(e)=>{
                         const target = e.target as HTMLButtonElement;
                         const className = target.className;
                         console.log(className);
-                        if(className.includes(`user-${2}`)){
-                            
-                              dispatch(editUser({id: 2,
-                                name: "Gelaaaaaaa Howell",
-                                username: "Antonette",
-                                email: "Shanna@melissa.tv",
-                                street: "Victor Plains",
-                                suite: "Suite 879",
-                                city: "Wisokyburgh",
-                              }
-                              ))
-                        }
+                     
                         dispatch(setEditModalIsShown())
                         props.setEditedUserId(props.user.id)
                        }} id='action' className={`user-${props.user.id} p-3 bg-green-400 text-white rounded-md`}>Edit</button>

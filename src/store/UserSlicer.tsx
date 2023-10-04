@@ -20,6 +20,7 @@ const userSlice = createSlice({
         },
 
         editUser:(state,action)=>{
+            console.log(action.payload);
            const usersCopy = state.usersData?.slice();
            usersCopy.map((user)=>{
             if(user.id === action.payload.id){
