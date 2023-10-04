@@ -24,7 +24,7 @@ return  <tbody onClick={(e)=>{
                     <td>
                         <div  className='flex gap-3 justify-center'>
                         
-                        <button id='action' className='bg-red-500 p-3 text-white rounded-md' onClick={()=>{
+                        <button id='action' className='bg-red-500 p-3 text-white rounded-md hover:bg-opacity-[70%] ' onClick={()=>{
                             console.log(props.user.id);
                             props.setDeletedUserId(props.user.id);
                             dispatch(setDeleteModalIsShown());
@@ -37,7 +37,7 @@ return  <tbody onClick={(e)=>{
                      
                         dispatch(setEditModalIsShown())
                         props.setEditedUserId(props.user.id)
-                       }} id='action' className={`user-${props.user.id} p-3 bg-green-400 text-white rounded-md`}>Edit</button>
+                       }} id='action' className={`user-${props.user.id} p-3 bg-green-400 text-white rounded-md hover:bg-opacity-[70%]`}>Edit</button>
                         </div>
                         </td> 
                 </tr>

@@ -56,7 +56,7 @@ import { setEditModalIsHidden } from './store/EditModalSlicer';
     const classname = target.className;
     if(classname.includes('backdrop-edit')){
       dispatch(setEditModalIsHidden());
-      // alert('User Is Not Editted!')
+      alert('User Did Not Update!')
     }
   }} className='backdrop-edit w-screen h-screen absolute bg-black z-10 bg-opacity-60 flex items-center justify-center'>
      <EditModal editedUserId={editedUserId}/>

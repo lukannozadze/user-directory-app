@@ -12,8 +12,8 @@ const EditModal = (props:{editedUserId:number|null}) =>{
 
   name:z.string().regex(new RegExp('.*^[A-Za-z\s]+$.*'),"Letters Only;Spaces"),
   email:z.string().email("Invalid Format"),
-  city:z.string().regex(new RegExp('.*^[A-Za-z]+$.*'),'Letters Only'),
-  street:z.string().regex(new RegExp('.*^[A-Za-z]+$.*'),'Letters Only'),
+  city:z.string().regex(new RegExp('.*^[A-Za-z]+$.*'),'Letters Only;Spaces'),
+  street:z.string().regex(new RegExp('.*^[A-Za-z]+$.*'),'Letters Only;Spaces'),
   suite:z.string()
  })
  type SignUpSchemaType = z.infer<typeof SignUpSchema>;
@@ -34,7 +34,7 @@ return <form onSubmit={
     dispatch(editUser({formObj:data,id:props.editedUserId}))
     dispatch(setEditModalIsHidden());
     alert('User Updated Successfully')
-    })} className="bg-white p-8 flex flex-col gap-3 "> 
+    })} className="bg-white p-8 flex flex-col gap-3 rounded-lg "> 
      <EditModalInput errors={errors} register={register}  key={1} label='name' value={activeUser?.name}/>
      <EditModalInput  errors={errors} register={register} key={2} label='email' value={activeUser?.email}/>
      <EditModalInput  errors={errors} register={register} key={3} label='city' value={activeUser?.address.city}/>
@@ -44,8 +44,8 @@ return <form onSubmit={
     <button onClick={()=>{
       dispatch(setEditModalIsHidden())
       alert('User Did Not Update!')
-      }} className="bg-white border-2 border-blue-500 b rounded-sm text-black p-2">Cancel</button>
-    <button type="submit" className="bg-blue-500 rounded-sm text-white p-2">Update</button>
+      }} className="bg-white border-2 border-blue-500 b rounded-md text-black p-2 hover:opacity-70">Cancel</button>
+    <button type="submit" className="bg-blue-500 rounded-md text-white p-2 hover:opacity-70">Update</button>
     </div>
 </form>
 }
