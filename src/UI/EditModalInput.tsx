@@ -12,7 +12,6 @@ interface input{
 const EditModalInput = (props:input) => {
     const errorMessage = props.errors?.[props.label]?.message;
     useEffect(()=>{
-      console.log(props.errors?.name?.message);
     },[props.errors])
    
 return <div className="flex flex-col">

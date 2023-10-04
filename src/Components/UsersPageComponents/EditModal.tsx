@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import EditModalInput from "../../UI/EditModalInput";
@@ -9,11 +10,11 @@ import { setEditModalIsHidden } from "../../store/EditModalSlicer";
 const EditModal = (props:{editedUserId:number|null}) =>{
 
  const SignUpSchema = z.object({
-
+//added \s to regExp but have no idea why it's not still working, so spaces is not allowed
   name:z.string().regex(new RegExp('.*^[A-Za-z\s]+$.*'),"Letters Only;Spaces"),
   email:z.string().email("Invalid Format"),
-  city:z.string().regex(new RegExp('.*^[A-Za-z]+$.*'),'Letters Only;Spaces'),
-  street:z.string().regex(new RegExp('.*^[A-Za-z]+$.*'),'Letters Only;Spaces'),
+  city:z.string().regex(new RegExp('.*^[A-Za-z]\s+$.*'),'Letters Only;Spaces'),
+  street:z.string().regex(new RegExp('.*^[A-Za-z]\s+$.*'),'Letters Only;Spaces'),
   suite:z.string()
  })
  type SignUpSchemaType = z.infer<typeof SignUpSchema>;
