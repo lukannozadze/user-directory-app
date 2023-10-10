@@ -13,8 +13,8 @@ const EditModal = (props:{editedUserId:number|null}) =>{
 //added \s to regExp but have no idea why it's not still working, so spaces is not allowed
   name:z.string().regex(new RegExp('.*^[A-Za-z\s]+$.*'),"Letters Only;Spaces"),
   email:z.string().email("Invalid Format"),
-  city:z.string().regex(new RegExp('.*^[A-Za-z]\s+$.*'),'Letters Only;Spaces'),
-  street:z.string().regex(new RegExp('.*^[A-Za-z]\s+$.*'),'Letters Only;Spaces'),
+  city:z.string().regex(new RegExp('.*^[A-Za-z\s]+$.*'),'Letters Only;Spaces'),
+  street:z.string().regex(new RegExp('.*^[A-Za-z\s]+$.*'),'Letters Only;Spaces'),
   suite:z.string()
  })
  type SignUpSchemaType = z.infer<typeof SignUpSchema>;
