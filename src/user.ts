@@ -10,8 +10,8 @@
     geo:coordinates
   }
   export interface user{
-  id:number,
-  name:string,
-  email:string,
+  readonly [key:number]:number | string | address
+  name:string
+  email:string
   address:address
   }

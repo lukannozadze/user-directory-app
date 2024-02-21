@@ -1,8 +1,8 @@
 import { user } from "../../user";
 
 const DetailBody  = (props:{users:user[] | null,clickedUser:number | null}) =>{
-const clickedUser = props.users?.filter((user)=>user.id === props.clickedUser)[0];
-
+const clickedUser = props.users[props.clickedUser];
+console.log(clickedUser);
 return <div className="text-[28px] flex flex-col gap-5">
     <div className="flex gap-10 ">
         <span className="w-[150px] font-mono">username:</span>
